@@ -1,0 +1,30 @@
+.image-review{
+    padding: 15px 0;
+    border-radius: 10px;
+}
+.image-review img{
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.file-review{
+    padding: 15px 0;
+}
+.image-td{
+    width: 80px;
+    height: 70px;
+}
+.image-td img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+.table-action{
+    min-height: 70px !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
