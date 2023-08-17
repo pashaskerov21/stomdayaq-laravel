@@ -15,7 +15,7 @@
             </div>
             <div class="col-12 col-lg-4 col-xl-5 contact-col">
                 <div class="contact-wrapper">
-                    <a href="{{$settings->location_url}}" class="link"><i class="fa-solid fa-location-dot"></i>{{$settings->location_text}}</a>
+                    <a href="{{$settings->address_url}}" class="link"><i class="fa-solid fa-location-dot"></i>{{$settings->getSettingTranslate->where('lang', Session('lang'))->first()->address}}</a>
                     <a href="#" class="link"><i class="fa-solid fa-phone"></i>{{$settings->phone}}</a>
                     <a href="#" class="link"><i class="fa-solid fa-envelope"></i>{{$settings->mail}}</a>
                 </div>

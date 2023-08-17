@@ -12,7 +12,7 @@ use App\Models\Menu;
 use App\Models\Partner;
 use App\Models\Region;
 use App\Models\Report;
-use App\Models\Setting;
+use App\Models\Settings;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 
@@ -20,7 +20,7 @@ class SiteController extends Controller
 {
     public function index(){
         $lang = ['az' => '/', 'ru' => '/ru/', 'en' => '/en/',];
-        $settings = Setting::findOrFail(1);
+        $settings = Settings::findOrFail(1);
         $menues = Menu::where('destroy',0)->orderBy('sort')->get();
         $areas = ApplicationArea::where('destroy',0)->orderBy('sort')->get();
         $regions = Region::where('destroy', 0)->orderBy('sort')->get();

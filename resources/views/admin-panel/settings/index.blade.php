@@ -35,11 +35,61 @@
                         </div>
                     @endif
                     <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label">title</label>
-                            <input type="text" class="form-control" name="title" value="{{ $settings->title ?? '' }}">
+                        <ul class="nav nav-pills bg-nav-pills nav-justified mb-3">
+                            <li class="nav-item">
+                                <a href="#tab_az" data-bs-toggle="tab" class="nav-link rounded-0 active">
+                                    <i class="mdi mdi-home-variant d-md-none d-block"></i>
+                                    <span class="d-none d-md-block">az</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#tab_en" data-bs-toggle="tab" class="nav-link rounded-0">
+                                    <i class="mdi mdi-account-circle d-md-none d-block"></i>
+                                    <span class="d-none d-md-block">en</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#tab_ru" data-bs-toggle="tab" class="nav-link rounded-0">
+                                    <i class="mdi mdi-settings-outline d-md-none d-block"></i>
+                                    <span class="d-none d-md-block">ru</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            @foreach ($settings->getSettingTranslate as $index=>$translate)
+                                <div class="tab-pane show @if ($index == 0) active @endif" id="tab_{{$translate->lang}}">
+                                    <div class="mb-3">
+                                        <label class="form-label">title {{$translate->lang}}</label>
+                                        <input type="text" class="form-control" name="title[]" value="{{$translate->title}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">address {{$translate->lang}}</label>
+                                        <input type="text" class="form-control" name="address[]" value="{{$translate->address}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">description {{$translate->lang}}</label>
+                                        <input type="text" class="form-control" name="description[]" value="{{$translate->description}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">keywords {{$translate->lang}}</label>
+                                        <input type="text" class="form-control" name="keywords[]" value="{{$translate->keywords}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">author az</label>
+                                        <input type="text" class="form-control" name="author[]" value="{{$translate->author}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">copyright {{$translate->lang}}</label>
+                                        <input type="text" class="form-control" name="copyright[]" value="{{$translate->copyright}}">
+                                    </div>
+                                    <input type="hidden" name="lang[]" value="{{$translate->lang}}">
+                                </div>
+                            @endforeach
                         </div>
+                        
+                        
                     </div>
+                    
                     <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">logo</label>
@@ -51,8 +101,6 @@
                                 </div>
                             @endif
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">favicon</label>
                             <input type="file" class="form-control" name="favicon">
@@ -63,77 +111,33 @@
                                 </div>
                             @endif
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">location text</label>
-                            <input type="text" class="form-control" name="location_text" value="{{ $settings->location_text ?? '' }}">
+                            <label class="form-label">address url</label>
+                            <input type="text" class="form-control" name="address_url" value="{{$settings->address_url}}">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label">location url</label>
-                            <input type="text" class="form-control" name="location_url" value="{{ $settings->location_url ?? '' }}">
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">mail</label>
-                            <input type="text" class="form-control" name="mail" value="{{ $settings->mail ?? '' }}">
+                            <input type="text" class="form-control" name="mail" value="{{$settings->mail}}">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">phone</label>
-                            <input type="text" class="form-control" name="phone" value="{{ $settings->phone ?? '' }}">
+                            <input type="text" class="form-control" name="phone" value="{{$settings->phone}}">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">facobook</label>
-                            <input type="text" class="form-control" name="facobook" value="{{ $settings->facobook ?? '' }}">
+                            <label class="form-label">facebook</label>
+                            <input type="text" class="form-control" name="facebook" value="{{$settings->facebook}}">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">instagram</label>
-                            <input type="text" class="form-control" name="instagram" value="{{ $settings->instagram ?? '' }}">
+                            <input type="text" class="form-control" name="instagram" value="{{$settings->instagram}}">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">youtube</label>
-                            <input type="text" class="form-control" name="youtube" value="{{ $settings->youtube ?? '' }}">
+                            <input type="text" class="form-control" name="youtube" value="{{$settings->youtube}}">
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label">description</label>
-                            <textarea class="form-control" name="description" rows="5">{{$settings->description ?? ''}}</textarea>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label">keywords</label>
-                            <textarea class="form-control" name="keywords" rows="5">{{$settings->keywords ?? ''}}</textarea>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label">author</label>
-                            <input type="text" class="form-control" name="author" value="{{ $settings->author ?? '' }}">
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label">copyright</label>
-                            <input type="text" class="form-control" name="copyright" value="{{ $settings->copyright ?? '' }}">
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">report total</label>
-                            <input type="text" class="form-control" name="report_total" value="{{ $settings->report_total ?? '' }}">
+                            <input type="text" class="form-control" name="report_total" value="{{$settings->report_total}}">
                         </div>
                     </div>
                     <div class="col-12">
